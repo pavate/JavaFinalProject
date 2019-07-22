@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -19,5 +20,6 @@
       <Label layoutX="46.0" layoutY="192.0" text="Password" />
       <Button fx:id="btnEmployeeLogin" layoutX="81.0" layoutY="252.0" mnemonicParsing="false" text="Login" />
       <PasswordField fx:id="txtEmpPass" layoutX="46.0" layoutY="209.0" />
+      <ImageView fx:id="imgBack" fitHeight="46.0" fitWidth="46.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#clickBack" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
