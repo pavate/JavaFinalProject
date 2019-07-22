@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package bookdatabase.Mainscreen;
+package bookdatabase;
+
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +20,7 @@ public class BookDatabase extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Mainscreen/MainPageFXMLDocument.fxml"));
         
         Scene scene = new Scene(root);
         
