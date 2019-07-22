@@ -16,6 +16,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
@@ -31,12 +34,16 @@ public class EmployeeLoginFXMLController implements Initializable {
     private TextField txtEmpID;
     @FXML
     private TextField txtEmpPass;
+    @FXML
+    private ImageView imgBack;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+         Image img1 = new Image(("images/back.png"));
+        imgBack.setImage(img1);
          btnEmployeeLogin.setOnAction((ActionEvent event) -> {
 //             String usename =txtEmpID.getText();
 //             String password =txtEmpPass.getText();
@@ -65,5 +72,23 @@ public class EmployeeLoginFXMLController implements Initializable {
        });
         // TODO
     }    
+
+    @FXML
+    private void clickBack(MouseEvent event) {
+         Stage stage = (Stage) btnEmployeeLogin.getScene().getWindow();
+        
+            try {
+               
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainPageFXMLDocument.fxml"));
+                    Parent root1 = (Parent) fxmlLoader.load();
+                    stage.setTitle("2ndpage");
+                    stage.setScene(new Scene(root1));
+                    stage.show();
+                
+            } catch (Exception e) {
+                System.out.println("not working");
+            }
+        
+    }
     
 }
