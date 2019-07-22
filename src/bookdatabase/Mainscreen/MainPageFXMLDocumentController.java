@@ -51,9 +51,9 @@ public class MainPageFXMLDocumentController implements Initializable {
              }
        });
           btnEmployee.setOnAction((ActionEvent event) -> {
-             Stage stage =(Stage)btnStudent.getScene().getWindow();
+             Stage stage =(Stage)btnEmployee.getScene().getWindow();
              try {
-                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EmployeeLoginFXML.fxml"));
+                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EmployeeloginFXML.fxml"));
                  Parent root1 = (Parent) fxmlLoader.load();
                  stage.setTitle("2ndpage");
                  stage.setScene(new Scene(root1));
