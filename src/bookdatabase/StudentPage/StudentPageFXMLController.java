@@ -38,6 +38,7 @@ public class StudentPageFXMLController implements Initializable {
     @FXML
     private ListView<String> listViewStudent;
      List<Books> bookList = new ArrayList<Books>();
+     //adding a few books for example
      Books book1 = new Books(1234,"title","author","publisher",258,"category");
       
             
@@ -62,6 +63,7 @@ public class StudentPageFXMLController implements Initializable {
        });
           btnSeeList.setOnAction((ActionEvent event) -> {
             studentBookList.clear();
+            bookList.clear();
              bookList.add(book1);
            
 
