@@ -6,6 +6,7 @@
 package bookdatabase.Mainscreen;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -14,7 +15,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -61,6 +64,19 @@ public class MainPageFXMLDocumentController implements Initializable {
              } catch (Exception e) {
                  System.out.println("not working");
              }
+       });
+          btnMainExit.setOnAction((ActionEvent event) -> {
+              Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setX(500);
+                alert.setY(350);
+                alert.setTitle("Confirmation Dialog");
+                alert.setHeaderText("Would you like to Quit?");
+                alert.setContentText("Are you ok with this?");
+
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.get() == ButtonType.OK) {
+                    System.exit(0);
+                }
        });
     }    
     
