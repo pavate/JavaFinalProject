@@ -9,6 +9,10 @@ package bookdatabase;
 public class Books {
     private int ISBN;
     private String title;
+     private String author;
+    private String publisher;
+    private int edition;
+    private String category;
 
     public Books(int ISBN, String title, String author, String publisher, int edition, String category) {
         this.ISBN = ISBN;
@@ -21,10 +25,12 @@ public class Books {
 
     public Books() {
     }
-    private String author;
-    private String publisher;
-    private int edition;
-    private String category;
+    @Override()
+    public String toString() {
+         String format = "%s     (   %s    )  ,       QOH: %s       Price:     %s ";
+        return String.format(format, author, title,category, publisher);
+    }
+   
     
 
 }

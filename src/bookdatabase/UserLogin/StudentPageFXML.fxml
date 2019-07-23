@@ -14,10 +14,11 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <ListView layoutX="13.0" layoutY="122.0" prefHeight="214.0" prefWidth="574.0" />
+      <ListView fx:id="listViewStudent" layoutX="13.0" layoutY="122.0" prefHeight="214.0" prefWidth="574.0" />
       <Button fx:id="btnLogout" layoutX="491.0" layoutY="424.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="95.0" text="Logout" />
       <Button layoutX="518.0" layoutY="344.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="68.0" text="Clear" />
       <TextField alignment="CENTER" layoutX="390.0" layoutY="91.0" promptText="Search Here" />
       <Button layoutX="543.0" layoutY="91.0" mnemonicParsing="false" text="Go" />
+      <Button fx:id="btnSeeList" layoutX="431.0" layoutY="344.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="68.0" text="See All" />
    </children>
 </AnchorPane>

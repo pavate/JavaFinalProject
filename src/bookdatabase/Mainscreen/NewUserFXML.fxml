@@ -4,11 +4,11 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="538.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="bookdatabase.Mainscreen.NewUserFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="538.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookdatabase.Mainscreen.NewUserFXMLController">
    <children>
       <Label layoutX="171.0" layoutY="20.0" prefHeight="39.0" prefWidth="258.0" text="Register to Continue">
          <font>
@@ -30,6 +30,7 @@
       <TextField layoutX="119.0" layoutY="390.0" />
       <Label layoutX="121.0" layoutY="310.0" text="Choose Password" />
       <Label layoutX="120.0" layoutY="373.0" prefHeight="17.0" prefWidth="102.0" text="Confirm Password" />
-      <Button layoutX="254.0" layoutY="452.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="126.0" text="Register" textFill="#9a1e88" />
+      <Button fx:id="btnRegister" layoutX="254.0" layoutY="452.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="126.0" text="Register" textFill="#9a1e88" />
+      <ImageView fx:id="imgBack" fitHeight="39.0" fitWidth="46.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#clickBack" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

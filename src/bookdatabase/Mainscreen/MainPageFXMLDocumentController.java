@@ -34,6 +34,8 @@ public class MainPageFXMLDocumentController implements Initializable {
     private Button btnMainExit;
     @FXML
     private ImageView imgMainscreen;
+    @FXML
+    private Button btnRegister;
     
    
     
@@ -77,6 +79,18 @@ public class MainPageFXMLDocumentController implements Initializable {
                 if (result.get() == ButtonType.OK) {
                     System.exit(0);
                 }
+       });
+          btnRegister.setOnAction((ActionEvent event) -> {
+             Stage stage =(Stage)btnRegister.getScene().getWindow();
+             try {
+                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("NewUserFXML.fxml"));
+                 Parent root1 = (Parent) fxmlLoader.load();
+                 stage.setTitle("2ndpage");
+                 stage.setScene(new Scene(root1));
+                 stage.show();
+             } catch (Exception e) {
+                 System.out.println("not working");
+             }
        });
     }    
     

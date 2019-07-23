@@ -9,13 +9,13 @@
 
 <AnchorPane id="AnchorPane" prefHeight="511.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookdatabase.EmployeePage.EmployeePageFXMLController">
    <children>
-      <Label layoutX="178.0" layoutY="14.0" prefHeight="35.0" prefWidth="324.0" text="Book Database for Employees">
+      <Label layoutX="178.0" layoutY="14.0" prefHeight="35.0" prefWidth="388.0" text="Book Database for Employees">
          <font>
-            <Font size="24.0" />
+            <Font name="Bookman Old Style" size="24.0" />
          </font>
       </Label>
       <ListView layoutX="247.0" layoutY="102.0" prefHeight="273.0" prefWidth="470.0" />
-      <Button fx:id="btnLogout" layoutX="591.0" layoutY="462.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="Logout" />
+      <Button fx:id="btnLogout" layoutX="644.0" layoutY="462.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="Logout" />
       <Button layoutX="265.0" layoutY="398.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="Add" />
       <Button layoutX="370.0" layoutY="398.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="Delete" />
       <Button layoutX="465.0" layoutY="398.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="Refresh" />
