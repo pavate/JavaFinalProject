@@ -5,8 +5,14 @@
  */
 package bookdatabase.StudentPage;
 
+
+import bookdatabase.Books;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +20,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
 /**
@@ -25,6 +32,16 @@ public class StudentPageFXMLController implements Initializable {
 
     @FXML
     private Button btnLogout;
+    @FXML
+    private Button btnSeeList;
+    private final ObservableList<String> studentBookList = FXCollections.observableArrayList();
+    @FXML
+    private ListView<String> listViewStudent;
+     List<Books> bookList = new ArrayList<Books>();
+     Books book1 = new Books(1234,"title","author","publisher",258,"category");
+      
+            
+    
 
     /**
      * Initializes the controller class.
@@ -43,7 +60,18 @@ public class StudentPageFXMLController implements Initializable {
                  System.out.println("not working");
              }
        });
-        // TODO
+          btnSeeList.setOnAction((ActionEvent event) -> {
+            studentBookList.clear();
+             bookList.add(book1);
+           
+
+            for (int i = 0; i <= bookList.size() - 1; i++) {
+
+               studentBookList.add(bookList.get(i).toString());
+            }
+            listViewStudent.setItems(studentBookList);
+        });
+        
     }    
     
 }
