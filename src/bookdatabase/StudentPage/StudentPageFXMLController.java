@@ -5,8 +5,9 @@
  */
 package bookdatabase.StudentPage;
 
-
+import bookdatabase.EmployeePage.*;
 import bookdatabase.Books;
+import bookdatabase.BookList;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,46 +35,55 @@ import javafx.stage.Stage;
 public class StudentPageFXMLController implements Initializable {
 
     @FXML
-    private Button btnLogout,btnStudentPageExit;
+    private Button btnLogout, btnStudentPageExit;
+
     @FXML
     private Button btnSeeList;
     private final ObservableList<String> studentBookList = FXCollections.observableArrayList();
+
     @FXML
     private ListView<String> listViewStudent;
-     List<Books> bookList = new ArrayList<Books>();
-     //adding a few books for example
-     Books book1 = new Books(1234,"title","author","publisher",258,"category");
-      
+
+    List<Books> bookList = new ArrayList<Books>();
+    //adding a few books for example
+    Books book1 = new Books(1234, "title", "author", "publisher", 258, "category");
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         btnLogout.setOnAction((ActionEvent event) -> {
-             Stage stage =(Stage)btnLogout.getScene().getWindow();
-             try {
-                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainPageFXMLDocument.fxml"));
-                 Parent root1 = (Parent) fxmlLoader.load();
-                 stage.setTitle("2ndpage");
-                 stage.setScene(new Scene(root1));
-                 stage.show();
-             } catch (Exception e) {
-                 System.out.println("not working");
-             }
-       });
-          btnSeeList.setOnAction((ActionEvent event) -> {
+
+        btnLogout.setOnAction((ActionEvent event) -> {
+            Stage stage = (Stage) btnLogout.getScene().getWindow();
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainPageFXMLDocument.fxml"));
+                Parent root1 = (Parent) fxmlLoader.load();
+                stage.setTitle("Student Book List");
+                stage.setScene(new Scene(root1));
+                stage.show();
+            } catch (Exception e) {
+                System.out.println("Student Book List - not working");
+            }
+        });
+
+        btnSeeList.setOnAction((ActionEvent event) -> {
+            
+//            Books book2 = new Books(bookdatabase.EmployeePage.obsBookList);
+//            listViewStudent.setItems(obsBookList);
+
             studentBookList.clear();
             bookList.clear();
-             bookList.add(book1);
+            bookList.add(book1);
            
-
             for (int i = 0; i <= bookList.size() - 1; i++) {
 
                studentBookList.add(bookList.get(i).toString());
             }
             listViewStudent.setItems(studentBookList);
         });
-          btnStudentPageExit.setOnAction((ActionEvent event) -> {
+
+        btnStudentPageExit.setOnAction((ActionEvent event) -> {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setX(500);
             alert.setY(350);
@@ -86,7 +96,7 @@ public class StudentPageFXMLController implements Initializable {
                 System.exit(0);
             }
         });
-        
-    }    
-    
+
+    }
+
 }

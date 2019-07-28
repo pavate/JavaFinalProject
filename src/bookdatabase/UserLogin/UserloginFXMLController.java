@@ -65,7 +65,7 @@ public class UserloginFXMLController implements Initializable {
                 if (txtStuID.getText().equals("user") && txtStuPass.getText().equals("user")) {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("StudentPageFXML.fxml"));
                     Parent root1 = (Parent) fxmlLoader.load();
-                    stage.setTitle("2ndpage");
+                    stage.setTitle("Student Home Page");
                     stage.setScene(new Scene(root1));
                     stage.show();
                 } else {

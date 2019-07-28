@@ -10,6 +10,6 @@ import java.util.List;
  * @author acer
  */
 public class BookList {
-    ArrayList<Books> bookList = new ArrayList<Books>();
+    List<Books> bookList = new ArrayList<Books>();
 
 }
