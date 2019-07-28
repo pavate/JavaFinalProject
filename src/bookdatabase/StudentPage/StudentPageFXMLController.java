@@ -10,6 +10,7 @@ import bookdatabase.Books;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,7 +20,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
@@ -31,7 +34,7 @@ import javafx.stage.Stage;
 public class StudentPageFXMLController implements Initializable {
 
     @FXML
-    private Button btnLogout;
+    private Button btnLogout,btnStudentPageExit;
     @FXML
     private Button btnSeeList;
     private final ObservableList<String> studentBookList = FXCollections.observableArrayList();
@@ -41,9 +44,6 @@ public class StudentPageFXMLController implements Initializable {
      //adding a few books for example
      Books book1 = new Books(1234,"title","author","publisher",258,"category");
       
-            
-    
-
     /**
      * Initializes the controller class.
      */
@@ -72,6 +72,19 @@ public class StudentPageFXMLController implements Initializable {
                studentBookList.add(bookList.get(i).toString());
             }
             listViewStudent.setItems(studentBookList);
+        });
+          btnStudentPageExit.setOnAction((ActionEvent event) -> {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setX(500);
+            alert.setY(350);
+            alert.setTitle("Confirmation Dialog");
+            alert.setHeaderText("Exit Application");
+            alert.setContentText("Are you sure you want to quit?");
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                System.exit(0);
+            }
         });
         
     }    

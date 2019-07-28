@@ -6,6 +6,7 @@
 package bookdatabase.UserLogin;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -29,7 +31,7 @@ import javafx.stage.Stage;
 public class UserloginFXMLController implements Initializable {
 
     @FXML
-    private Button btnLoginStudent;
+    private Button btnLoginStudent, btnUserLoginExit;
     @FXML
     private TextField txtStuID;
     @FXML
@@ -48,6 +50,7 @@ public class UserloginFXMLController implements Initializable {
 //       
 //
 //    }
+
     /**
      * Initializes the controller class.
      */
@@ -78,6 +81,19 @@ public class UserloginFXMLController implements Initializable {
                 System.out.println("not working");
             }
         });
+        btnUserLoginExit.setOnAction((ActionEvent event) -> {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setX(500);
+            alert.setY(350);
+            alert.setTitle("Confirmation Dialog");
+            alert.setHeaderText("Exit Application");
+            alert.setContentText("Are you sure you want to quit?");
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                System.exit(0);
+            }
+        });
 
         // TODO
     }
@@ -85,20 +101,19 @@ public class UserloginFXMLController implements Initializable {
     @FXML
     private void clickBack(MouseEvent event) {
         Stage stage = (Stage) btnLoginStudent.getScene().getWindow();
-        
-            try {
-               
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainPageFXMLDocument.fxml"));
-                    Parent root1 = (Parent) fxmlLoader.load();
-                    stage.setTitle("2ndpage");
-                    stage.setScene(new Scene(root1));
-                    stage.show();
-                
-            } catch (Exception e) {
-                System.out.println("not working");
-            }
-                    
-        
+
+        try {
+
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainPageFXMLDocument.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            stage.setTitle("2ndpage");
+            stage.setScene(new Scene(root1));
+            stage.show();
+
+        } catch (Exception e) {
+            System.out.println("not working");
+        }
+
     }
 
 }

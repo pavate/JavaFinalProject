@@ -48,11 +48,11 @@ public class MainPageFXMLDocumentController implements Initializable {
              try {
                  FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("UserloginFXML.fxml"));
                  Parent root1 = (Parent) fxmlLoader.load();
-                 stage.setTitle("2ndpage");
+                 stage.setTitle("Student Login page");
                  stage.setScene(new Scene(root1));
                  stage.show();
              } catch (Exception e) {
-                 System.out.println("not working");
+                 System.out.println("Student Login page - not working");
              }
        });
           btnEmployee.setOnAction((ActionEvent event) -> {
@@ -60,11 +60,11 @@ public class MainPageFXMLDocumentController implements Initializable {
              try {
                  FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EmployeeloginFXML.fxml"));
                  Parent root1 = (Parent) fxmlLoader.load();
-                 stage.setTitle("2ndpage");
+                 stage.setTitle("Employee Login page");
                  stage.setScene(new Scene(root1));
                  stage.show();
              } catch (Exception e) {
-                 System.out.println("not working");
+                 System.out.println("Employee Login page - Not working");
              }
        });
           btnMainExit.setOnAction((ActionEvent event) -> {
@@ -72,8 +72,8 @@ public class MainPageFXMLDocumentController implements Initializable {
                 alert.setX(500);
                 alert.setY(350);
                 alert.setTitle("Confirmation Dialog");
-                alert.setHeaderText("Would you like to Quit?");
-                alert.setContentText("Are you ok with this?");
+                alert.setHeaderText("Exit Application");
+                alert.setContentText("Are you sure you want to quit?");
 
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.get() == ButtonType.OK) {
@@ -85,11 +85,11 @@ public class MainPageFXMLDocumentController implements Initializable {
              try {
                  FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("NewUserFXML.fxml"));
                  Parent root1 = (Parent) fxmlLoader.load();
-                 stage.setTitle("2ndpage");
+                 stage.setTitle("Registration Page");
                  stage.setScene(new Scene(root1));
                  stage.show();
              } catch (Exception e) {
-                 System.out.println("not working");
+                 System.out.println("Registration Page - Not working");
              }
        });
     }    
