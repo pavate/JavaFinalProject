@@ -8,27 +8,29 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="511.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookdatabase.EmployeePage.EmployeePageFXMLController">
-   <children>
-      <Label layoutX="178.0" layoutY="14.0" prefHeight="35.0" prefWidth="388.0" text="Book Database for Employees">
-         <font>
-            <Font name="Bookman Old Style" size="24.0" />
-         </font>
-      </Label>
-      <ListView layoutX="247.0" layoutY="102.0" prefHeight="273.0" prefWidth="470.0" />
-      <Button fx:id="btnLogout" layoutX="644.0" layoutY="462.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="Logout" />
-      <Button layoutX="265.0" layoutY="398.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="Add" />
-      <Button layoutX="370.0" layoutY="398.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="Delete" />
-      <Button layoutX="465.0" layoutY="398.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="Refresh" />
-      <Button layoutX="642.0" layoutY="398.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="Clear" />
-      <TextField layoutX="39.0" layoutY="148.0" prefHeight="25.0" prefWidth="181.0" />
-      <Label layoutX="45.0" layoutY="126.0" text="Title:" />
-      <TextField layoutX="39.0" layoutY="214.0" prefHeight="25.0" prefWidth="181.0" />
-      <TextField layoutX="39.0" layoutY="286.0" prefHeight="25.0" prefWidth="181.0" />
-      <TextField layoutX="39.0" layoutY="350.0" prefHeight="25.0" prefWidth="181.0" />
-      <Label layoutX="40.0" layoutY="192.0" text="Author:" />
-      <Label layoutX="40.0" layoutY="266.0" text="Edition:" />
-      <Label layoutX="38.0" layoutY="326.0" text="Category:" />
-      <TextField layoutX="508.0" layoutY="69.0" prefHeight="25.0" prefWidth="167.0" />
-      <Button layoutX="685.0" layoutY="69.0" mnemonicParsing="false" text="Go" />
-   </children>
+    <children>
+        <Label layoutX="178.0" layoutY="14.0" prefHeight="35.0" prefWidth="388.0" text="Book Database for Employees">
+            <font>
+                <Font name="Bookman Old Style" size="24.0" />
+            </font>
+        </Label>
+        <ListView fx:id="lstEmployeeBookList" layoutX="247.0" layoutY="102.0" prefHeight="273.0" prefWidth="470.0" />
+        <Button fx:id="btnLogout" layoutX="644.0" layoutY="462.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="Logout" />
+        <Button fx:id="btnAdd" layoutX="265.0" layoutY="398.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="Add" />
+        <Button fx:id="btnDelete" layoutX="370.0" layoutY="398.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="Delete" />
+        <Button fx:id="btnRefresh" layoutX="465.0" layoutY="398.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="Refresh" />
+        <Button fx:id="btnClear" layoutX="642.0" layoutY="398.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="Clear" />
+      
+        <Label layoutX="40.0" layoutY="126.0" text="Title:" />
+        <TextField fx:id="txtTitle" layoutX="39.0" layoutY="148.0" prefHeight="25.0" prefWidth="181.0" />
+        <Label layoutX="40.0" layoutY="192.0" text="Author:" />
+        <TextField fx:id="txtAuthor" layoutX="39.0" layoutY="214.0" prefHeight="25.0" prefWidth="181.0" />
+        <Label layoutX="40.0" layoutY="266.0" text="Edition:" />
+        <TextField fx:id="txtEdition" layoutX="39.0" layoutY="286.0" prefHeight="25.0" prefWidth="181.0" />
+        <Label layoutX="40.0" layoutY="326.0" text="Category:" />
+        <TextField fx:id="txtCategory" layoutX="39.0" layoutY="350.0" prefHeight="25.0" prefWidth="181.0" />
+      
+        <TextField layoutX="508.0" layoutY="69.0" prefHeight="25.0" prefWidth="167.0" />
+        <Button layoutX="685.0" layoutY="69.0" mnemonicParsing="false" text="Go" />
+    </children>
 </AnchorPane>
