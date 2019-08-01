@@ -29,13 +29,15 @@ public class NewUserFXMLController implements Initializable {
     @FXML
     private Button btnRegister;
     @FXML
-    private ImageView imgBack;
+    private ImageView imgBack,imgLogin;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        Image img =new Image(("images/login.jpg"));
+        imgLogin.setImage(img);
         Image img1 = new Image(("images/back.png"));
         imgBack.setImage(img1);
          btnRegister.setOnAction((ActionEvent event) -> {

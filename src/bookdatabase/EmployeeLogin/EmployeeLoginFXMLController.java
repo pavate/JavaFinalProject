@@ -35,13 +35,16 @@ public class EmployeeLoginFXMLController implements Initializable {
     @FXML
     private TextField txtEmpPass;
     @FXML
-    private ImageView imgBack;
+    private ImageView imgBack,imgLogin;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        Image img =new Image(("images/login.jpg"));
+        imgLogin.setImage(img);
          Image img1 = new Image(("images/back.png"));
         imgBack.setImage(img1);
          btnEmployeeLogin.setOnAction((ActionEvent event) -> {

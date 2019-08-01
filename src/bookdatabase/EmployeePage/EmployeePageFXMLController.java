@@ -14,6 +14,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 /**
@@ -25,12 +27,16 @@ public class EmployeePageFXMLController implements Initializable {
 
     @FXML
     private Button btnLogout;
+    @FXML
+    private ImageView imgLogin;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        Image img =new Image(("images/login.jpg"));
+        imgLogin.setImage(img);
          btnLogout.setOnAction((ActionEvent event) -> {
              Stage stage =(Stage)btnLogout.getScene().getWindow();
              try {

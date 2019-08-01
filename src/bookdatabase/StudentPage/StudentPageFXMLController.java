@@ -21,6 +21,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 /**
@@ -32,6 +34,8 @@ public class StudentPageFXMLController implements Initializable {
 
     @FXML
     private Button btnLogout;
+    @FXML
+    private ImageView imgLogin;
     @FXML
     private Button btnSeeList;
     private final ObservableList<String> studentBookList = FXCollections.observableArrayList();
@@ -49,6 +53,8 @@ public class StudentPageFXMLController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        Image img =new Image(("images/login.jpg"));
+        imgLogin.setImage(img);
          btnLogout.setOnAction((ActionEvent event) -> {
              Stage stage =(Stage)btnLogout.getScene().getWindow();
              try {

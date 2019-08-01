@@ -35,7 +35,7 @@ public class UserloginFXMLController implements Initializable {
     @FXML
     private TextField txtStuPass;
     @FXML
-    private ImageView imgBack;
+    private ImageView imgBack, imgLogin;
 //@FXML
 //    public void clickBack(javafx.scene.input.MouseEvent event) {
 //         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -48,11 +48,14 @@ public class UserloginFXMLController implements Initializable {
 //       
 //
 //    }
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        Image img =new Image(("images/login.jpg"));
+        imgLogin.setImage(img);
         Image img1 = new Image(("images/back.png"));
         imgBack.setImage(img1);
 
@@ -85,20 +88,19 @@ public class UserloginFXMLController implements Initializable {
     @FXML
     private void clickBack(MouseEvent event) {
         Stage stage = (Stage) btnLoginStudent.getScene().getWindow();
-        
-            try {
-               
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainPageFXMLDocument.fxml"));
-                    Parent root1 = (Parent) fxmlLoader.load();
-                    stage.setTitle("2ndpage");
-                    stage.setScene(new Scene(root1));
-                    stage.show();
-                
-            } catch (Exception e) {
-                System.out.println("not working");
-            }
-                    
-        
+
+        try {
+
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainPageFXMLDocument.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            stage.setTitle("2ndpage");
+            stage.setScene(new Scene(root1));
+            stage.show();
+
+        } catch (Exception e) {
+            System.out.println("not working");
+        }
+
     }
 
 }
