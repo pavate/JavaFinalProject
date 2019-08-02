@@ -5,9 +5,7 @@
  */
 package bookdatabase.StudentPage;
 
-import bookdatabase.EmployeePage.*;
 import bookdatabase.Books;
-import bookdatabase.BookList;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +33,7 @@ import javafx.stage.Stage;
 public class StudentPageFXMLController implements Initializable {
 
     @FXML
-    private Button btnLogout, btnStudentPageExit;
+    private Button btnLogout, btnStudentPageExit, btnRegister;
 
     @FXML
     private Button btnSeeList;
@@ -68,17 +66,16 @@ public class StudentPageFXMLController implements Initializable {
         });
 
         btnSeeList.setOnAction((ActionEvent event) -> {
-            
+
 //            Books book2 = new Books(bookdatabase.EmployeePage.obsBookList);
 //            listViewStudent.setItems(obsBookList);
-
             studentBookList.clear();
             bookList.clear();
             bookList.add(book1);
-           
+
             for (int i = 0; i <= bookList.size() - 1; i++) {
 
-               studentBookList.add(bookList.get(i).toString());
+                studentBookList.add(bookList.get(i).toString());
             }
             listViewStudent.setItems(studentBookList);
         });

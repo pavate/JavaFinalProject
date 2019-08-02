@@ -7,9 +7,13 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import java.net.*?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookdatabase.UserLogin.UserloginFXMLController">
-   <children>
+    <stylesheets>
+        <URL value="@css/main.css"/>
+    </stylesheets>  
+    <children>
        <Button fx:id="btnUserLoginExit" layoutX="566.0" layoutY="14.0" mnemonicParsing="false" text="X" />
       <Label layoutX="249.0" layoutY="23.0" prefHeight="17.0" prefWidth="165.0" text="Login">
          <font>

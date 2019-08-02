@@ -38,18 +38,7 @@ public class UserloginFXMLController implements Initializable {
     private TextField txtStuPass;
     @FXML
     private ImageView imgBack;
-//@FXML
-//    public void clickBack(javafx.scene.input.MouseEvent event) {
-//         Alert alert = new Alert(Alert.AlertType.ERROR);
-//                    alert.setX(500);
-//                    alert.setY(350);
-//                    alert.setTitle("Wrong Combination");
-//                    alert.setHeaderText("Password or Username is Wrong ");
-//                    alert.setContentText("Please correct and try again");
-//                    alert.showAndWait();
-//       
-//
-//    }
+
 
     /**
      * Initializes the controller class.

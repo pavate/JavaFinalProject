@@ -47,9 +47,7 @@ public class EmployeeLoginFXMLController implements Initializable {
         Image img1 = new Image(("images/back.png"));
         imgBack.setImage(img1);
         btnEmployeeLogin.setOnAction((ActionEvent event) -> {
-//             String usename =txtEmpID.getText();
-//             String password =txtEmpPass.getText();
-//            
+
             Stage stage = (Stage) btnEmployeeLogin.getScene().getWindow();
             try {
                 if (txtEmpID.getText().equals("admin") && txtEmpPass.getText().equals("admin")) {
@@ -69,6 +67,7 @@ public class EmployeeLoginFXMLController implements Initializable {
                 }
             } catch (Exception e) {
                 System.out.println("not working");
+                System.out.println(e.getMessage());
             }
 
         });
