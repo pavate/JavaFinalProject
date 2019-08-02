@@ -6,9 +6,15 @@
 package bookdatabase.EmployeePage;
 
 import bookdatabase.Books;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -32,7 +38,7 @@ import javafx.stage.Stage;
 public class EmployeePageFXMLController implements Initializable {
 
     @FXML
-    private Button btnLogout, btnAdd, btnDelete, btnRefresh, btnClear, btnEmployeePageExit,btnEmployeeLogin;
+    private Button btnLogout, btnAdd, btnDelete, btnRefresh, btnClear, btnEmployeePageExit, btnEmployeeLogin;
 
     @FXML
     private ListView lstEmployeeBookList;
@@ -64,23 +70,108 @@ public class EmployeePageFXMLController implements Initializable {
 
         btnAdd.setOnAction((ActionEvent event) -> {
             try {
-                Books book = new Books();
+//                Books book = new Books();
+//
+//                book.setISBN(Integer.parseInt(txtISBN.getText()));
+//                book.setTitle(txtTitle.getText());
+//                book.setAuthor(txtAuthor.getText());
+//                book.setEdition(Integer.parseInt(txtEdition.getText()));
+//                book.setCategory(txtCategory.getText());
+//
+//                obsBookList.add(book);
+//
+//                lstEmployeeBookList.setItems(obsEmptyList);
+//
+//            } catch (Exception e) {
+//                System.out.println(e.getMessage());
+//                System.out.println("Add books(Employee) - not working");
+//            }
+//        });
 
-                book.setISBN(Integer.parseInt(txtISBN.getText()));
-                book.setTitle(txtTitle.getText());
-                book.setAuthor(txtAuthor.getText());
-                book.setEdition(Integer.parseInt(txtEdition.getText()));
-                book.setCategory(txtCategory.getText());
+// Code for RAF
+                RandomAccessFile raf = new RandomAccessFile(new File("test.txt"), "rw");
 
-                obsBookList.add(book);
+                int TITLE_SIZE = 40;
+                int AUTHOR_SIZE = 30;
+                int CATEGORY_SIZE = 20;
 
-                lstEmployeeBookList.setItems(obsEmptyList);
+                String title = txtTitle.getText();
+                String author = txtAuthor.getText();
+                String category = txtCategory.getText();
 
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-                System.out.println("Add books(Employee) - not working");
+                title = title.trim();
+                author = author.trim();
+                category = category.trim();
+
+                if (title.length() < TITLE_SIZE) {
+                    for (int i = title.length(); i < TITLE_SIZE; i++) {
+                        title = title + " ";
+                    }
+                    System.out.println("Length is: " + title.length());
+                }
+
+                if (author.length() < AUTHOR_SIZE) {
+                    for (int i = author.length(); i < AUTHOR_SIZE; i++) {
+                        author = author + " ";
+                    }
+                    System.out.println("Length is: " + author.length());
+                }
+
+                if (category.length() < CATEGORY_SIZE) {
+                    for (int i = category.length(); i < CATEGORY_SIZE; i++) {
+                        category = category + " ";
+                    }
+                    System.out.println("Length is:lt " + category.length());
+                }
+
+                if (title.length() > TITLE_SIZE) {
+//                    for (int i = title.length(); i > TITLE_SIZE; i--) {
+//                        title = title.substring(0, title.length() - 2);
+//                    }
+                    title = title.substring(0, 40);
+                    System.out.println("Length is:gt " + title.length());
+                }
+
+                if (author.length() > AUTHOR_SIZE) {
+//                    for (int i = author.length(); i > AUTHOR_SIZE; i--) {
+//                        author = author.substring(0, author.length() - 2);
+//                    }
+                    author = author.substring(0, 30);
+                    System.out.println("Length is:gt " + author.length());
+                }
+
+                if (category.length() > CATEGORY_SIZE) {
+//                    for (int i = category.length(); i > CATEGORY_SIZE; i--) {
+//                        category = category.substring(0, category.length() - 2);
+//                    }
+                    category = category.substring(0, 20);
+                    System.out.println("Length is:gt " + category.length());
+                }
+
+                if ((title.length() == TITLE_SIZE) && (author.length() == AUTHOR_SIZE) && (category.length() == CATEGORY_SIZE)) {
+                    raf.seek(raf.length());
+                    raf.writeInt(Integer.parseInt(txtISBN.getText()));
+                    System.out.println("Size of file after ISBN is" + raf.length());
+                    raf.writeChars(title);
+                    System.out.println("Size of file after Title is" + raf.length());
+                    raf.writeChars(author);
+                    System.out.println("Size of file after Author is" + raf.length());
+                    raf.writeInt(Integer.parseInt(txtEdition.getText()));
+                    System.out.println("Size of file after Edition is" + raf.length());
+                    raf.writeChars(category);
+                    System.out.println("Size of file after Category is" + raf.length());
+//                    System.out.println("Length is: " + title.length());
+//                    System.out.println("Length is: " + author.length());
+//                    System.out.println("Length is: " + category.length());
+                    raf.close();
+                }
+                  
+            } catch (FileNotFoundException ex) {
+//            Logger.getLogger(EmployeePageFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+                ex.getMessage();
+            } catch (IOException ex) {
+                Logger.getLogger(EmployeePageFXMLController.class.getName()).log(Level.SEVERE, null, ex);
             }
-
         });
 
         // TODO
