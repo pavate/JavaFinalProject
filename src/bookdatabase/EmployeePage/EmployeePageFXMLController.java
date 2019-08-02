@@ -32,13 +32,13 @@ import javafx.stage.Stage;
 public class EmployeePageFXMLController implements Initializable {
 
     @FXML
-    private Button btnLogout, btnAdd, btnDelete, btnRefresh, btnClear, btnEmployeePageExit,btnRegister,btnEmployeeLogin;
+    private Button btnLogout, btnAdd, btnDelete, btnRefresh, btnClear, btnEmployeePageExit,btnEmployeeLogin;
 
     @FXML
     private ListView lstEmployeeBookList;
 
     @FXML
-    private TextField txtTitle, txtAuthor, txtCategory, txtEdition;
+    private TextField txtISBN, txtTitle, txtAuthor, txtCategory, txtEdition;
 
     ObservableList<Books> obsBookList = FXCollections.observableArrayList();
     ObservableList<Books> obsEmptyList = FXCollections.observableArrayList();
@@ -66,8 +66,9 @@ public class EmployeePageFXMLController implements Initializable {
             try {
                 Books book = new Books();
 
+                book.setISBN(Integer.parseInt(txtISBN.getText()));
                 book.setTitle(txtTitle.getText());
-                book.setTitle(txtAuthor.getText());
+                book.setAuthor(txtAuthor.getText());
                 book.setEdition(Integer.parseInt(txtEdition.getText()));
                 book.setCategory(txtCategory.getText());
 
@@ -95,6 +96,7 @@ public class EmployeePageFXMLController implements Initializable {
 
         btnClear.setOnAction((ActionEvent event) -> {
             try {
+                txtISBN.setText("");
                 txtTitle.setText("");
                 txtEdition.setText("");
                 txtCategory.setText("");
