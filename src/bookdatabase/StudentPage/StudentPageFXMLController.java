@@ -5,7 +5,6 @@
  */
 package bookdatabase.StudentPage;
 
-import bookdatabase.BookList;
 import bookdatabase.Books;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -49,11 +48,13 @@ public class StudentPageFXMLController implements Initializable {
     @FXML
     private ListView<String> listViewStudent;
 
+    int ISBN = 0, edition = 0;
+    String title, author, category;
+
     List<Books> bookList = new ArrayList<Books>();
 
     //adding a few books for example
-    Books book1 = new Books(1234, "title", "author", 258, "category");
-
+    //Books book1 = new Books(1234, "title", "author", 258, "category");
     /**
      * Initializes the controller class.
      */
@@ -76,7 +77,7 @@ public class StudentPageFXMLController implements Initializable {
         btnSeeList.setOnAction((ActionEvent event) -> {
 
             try {
-                //            studentBookList.clear();
+//            studentBookList.clear();
 //            bookList.clear();
 //            bookList.add(book1);
 //
@@ -87,49 +88,70 @@ public class StudentPageFXMLController implements Initializable {
 //            listViewStudent.setItems(studentBookList);
 
 //Code for RAF
+                studentBookList.clear();
+                bookList.clear();
+
                 RandomAccessFile raf = new RandomAccessFile(new File("test.txt"), "r");
 
                 System.out.println("Length: " + raf.length());
                 int num_records = (int) (raf.length() / 188);
                 System.out.println("num records is " + num_records);
+
+                //Books book2 = new Books();
                 int loc = 0;
 
-                raf.seek(loc);
-                System.out.println(raf.readInt());
-                loc = loc + 4;
-                System.out.println("Loc after title is " + loc);
+                while (loc < raf.length()) {
+                    raf.seek(loc);
+                    //System.out.println(raf.readInt());
+                    ISBN = raf.readInt();
+                    //System.out.println(raf.readInt()+ " " + ISBN);
+                    loc = loc + 4;
+                    System.out.println("Loc after ISBN is " + loc);
 
-                raf.seek(loc);
-                String n = "";
-                for (int i = 0; i < 40; i++) {
-                    n += String.valueOf(raf.readChar());
+                    raf.seek(loc);
+                    String n = "";
+                    for (int i = 0; i < 40; i++) {
+                        n += String.valueOf(raf.readChar());
+                    }
+                    System.out.println(n);
+                    title = n;
+                    loc = loc + 80;
+                    System.out.println("Loc after title is " + loc);
+
+                    raf.seek(loc);
+                    String n1 = "";
+                    for (int i = 0; i < 30; i++) {
+                        n1 += String.valueOf(raf.readChar());
+                    }
+                    System.out.println(n1);
+                    author = n1;
+                    loc = loc + 60;
+                    System.out.println("Loc after author is " + loc);
+
+                    raf.seek(loc);
+                    //System.out.println(raf.readInt());
+                    edition = raf.readInt();
+                    loc = loc + 4;
+                    System.out.println("Loc after edition is " + loc);
+
+                    raf.seek(loc);
+                    String n2 = "";
+                    for (int i = 0; i < 20; i++) {
+                        n2 += String.valueOf(raf.readChar());
+                    }
+                    System.out.println(n2);
+                    category = n2;
+                    loc = loc + 40;
+                    System.out.println("Loc after category is " + loc);
+
+                    bookList.add(new Books(ISBN, title, author, edition, category));
                 }
-                System.out.println(n);
-                loc = loc + 80;
-                System.out.println("Loc after title is " + loc);
 
-                raf.seek(loc);
-                String n1 = "";
-                for (int i = 0; i < 30; i++) {
-                    n1 += String.valueOf(raf.readChar());
+                for (int i = 0; i <= bookList.size() - 1; i++) {
+
+                    studentBookList.add(bookList.get(i).toString());
                 }
-                System.out.println(n1);
-                loc = loc + 60;
-                System.out.println("Loc after author is " + loc);
-
-                raf.seek(loc);
-                System.out.println(raf.readInt());
-                loc = loc + 4;
-                System.out.println("Loc after edition is " + loc);
-
-                raf.seek(loc);
-                String n2 = "";
-                for (int i = 0; i < 20; i++) {
-                    n2 += String.valueOf(raf.readChar());
-                }
-                System.out.println(n2);
-                loc = loc + 40;
-                System.out.println("Loc after category is " + loc);
+                listViewStudent.setItems(studentBookList);
 
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(StudentPageFXMLController.class.getName()).log(Level.SEVERE, null, ex);
