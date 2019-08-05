@@ -29,6 +29,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -46,22 +47,34 @@ public class EmployeePageFXMLController implements Initializable {
     @FXML
     private ListView lstEmployeeBookList;
 
-    int ISBN = 0, edition = 0;
-    String title, author, category;
-
-    List<Books> bookList = new ArrayList<Books>();
+    @FXML
+    private ComboBox cmbView;
 
     @FXML
     private TextField txtISBN, txtTitle, txtAuthor, txtCategory, txtEdition;
 
-    private final ObservableList<Books> obsBookList = FXCollections.observableArrayList();
+    private final ObservableList<String> obsBookList = FXCollections.observableArrayList();
     private final ObservableList<Books> obsEmptyList = FXCollections.observableArrayList();
+    private final ObservableList<String> obsFilterList = FXCollections.observableArrayList();
+    
+    int ISBN = 0, edition = 0, record_number;
+    String title, author, category;
+
+    List<Books> bookList = new ArrayList<Books>();
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        obsFilterList.add("ISBN");
+        obsFilterList.add("Title");
+        obsFilterList.add("Author");
+        obsFilterList.add("Edition");
+        obsFilterList.add("Category");
+        
+        cmbView.setItems(obsFilterList);
 
         btnLogout.setOnAction((ActionEvent event) -> {
             Stage stage = (Stage) btnLogout.getScene().getWindow();
@@ -189,7 +202,7 @@ public class EmployeePageFXMLController implements Initializable {
 
 // Code for reading from RAF into observable list
                 obsBookList.clear();
-                bookList.clear();
+                //bookList.clear();
 
                 RandomAccessFile raf = new RandomAccessFile(new File("test.txt"), "r");
 
@@ -240,7 +253,12 @@ public class EmployeePageFXMLController implements Initializable {
                     loc = loc + 40;
                     System.out.println("Loc after category is " + loc);
 
-                    obsBookList.add(new Books(ISBN, title, author, edition, category));
+                    bookList.add(new Books(ISBN, title, author, edition, category));
+                }
+
+                for (int i = 0; i <= bookList.size() - 1; i++) {
+
+                    obsBookList.add(bookList.get(i).toString());
                 }
 
                 lstEmployeeBookList.setItems(obsBookList);
@@ -272,6 +290,12 @@ public class EmployeePageFXMLController implements Initializable {
         btnDelete.setOnAction((ActionEvent event) -> {
             try {
                 obsBookList.remove(lstEmployeeBookList.getSelectionModel().getSelectedItem());
+                record_number = lstEmployeeBookList.getSelectionModel().getSelectedIndex();
+
+                RandomAccessFile raf = new RandomAccessFile(new File("test.txt"), "rw");
+
+                int loc = record_number * 188;
+                raf.seek(loc);
 
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -292,6 +316,10 @@ public class EmployeePageFXMLController implements Initializable {
                 System.exit(0);
             }
         });
+
+    }
+
+    private void delete(int record_number) {
 
     }
 

@@ -28,6 +28,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
@@ -43,23 +44,34 @@ public class StudentPageFXMLController implements Initializable {
 
     @FXML
     private Button btnSeeList;
-    private final ObservableList<String> studentBookList = FXCollections.observableArrayList();
 
     @FXML
     private ListView<String> listViewStudent;
+    
+        @FXML
+    private ComboBox cmbView;
+
+    private final ObservableList<String> studentBookList = FXCollections.observableArrayList();
+    private final ObservableList<String> obsFilterList = FXCollections.observableArrayList();
 
     int ISBN = 0, edition = 0;
     String title, author, category;
 
     List<Books> bookList = new ArrayList<Books>();
 
-    //adding a few books for example
-    //Books book1 = new Books(1234, "title", "author", 258, "category");
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
+        obsFilterList.add("ISBN");
+        obsFilterList.add("Title");
+        obsFilterList.add("Author");
+        obsFilterList.add("Edition");
+        obsFilterList.add("Category");
+
+        cmbView.setItems(obsFilterList);
 
         btnLogout.setOnAction((ActionEvent event) -> {
             Stage stage = (Stage) btnLogout.getScene().getWindow();

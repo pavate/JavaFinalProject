@@ -11,11 +11,10 @@ public class Books {
     private String author;
     private int edition;
     private String category;
-    
+
 //  Record size = int = 4 , String = 40 , String = 30, int = 4 , String = 20
 //              = 4 + 80 + 60 + 4 + 40
 //  Each record = 188 bytes
-
     public Books(int ISBN, String title, String author, int edition, String category) {
         this.ISBN = ISBN;
         this.title = title;
@@ -70,7 +69,6 @@ public class Books {
 //    public void setPublisher(String publisher) {
 //        this.publisher = publisher;
 //    }
-
     public int getEdition() {
         return edition;
     }

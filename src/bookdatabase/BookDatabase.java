@@ -24,6 +24,7 @@ public class BookDatabase extends Application {
 
         Scene scene = new Scene(root);
 
+        stage.setTitle("Main Page");
         stage.setScene(scene);
         stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
